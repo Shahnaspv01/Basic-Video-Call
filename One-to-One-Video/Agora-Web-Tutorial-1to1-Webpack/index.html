@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Basic Communication</title>
-</head>
+  <title>Report In-call stats</title>
+
 <body class="agora-theme">
   <div class="navbar-fixed">
     <nav class="agora-navbar">
       <div class="nav-wrapper agora-primary-bg valign-wrapper">
-        <h5 class="left-align">Basic Communication</h5>
-        <a href="https://github.com/AgoraIO/Basic-Video-Call/tree/master/One-to-One-Video/Agora-Web-Tutorial-1to1-Webpack" class="agora-github-pin"></a>
+        <h5 class="left-align">Report In-call stats</h5>
       </div>
     </nav>
   </div>
@@ -23,27 +22,35 @@
           <div class="row card-content" style="margin-bottom: 0px;">
               <div class="input-field">
                 <label for="appID" class="active">App ID</label>
-                <input type="text" placeholder="App ID" name="appID">
+                <input type="text" placeholder="AppID" name="appID">
               </div>
               <div class="input-field">
                 <label for="channel" class="active">Channel</label>
-                <input type="text" placeholder="channel" name="channel">
+                <input type="text" placeholder="Channel" name="channel">
               </div>
               <div class="input-field">
                 <label for="token" class="active">Token</label>
-                <input type="text" placeholder="token" name="token">
+                <input type="text" placeholder="Token" name="token">
               </div>
               <div class="row" style="margin: 0">
                 <div class="col s12">
-                <button class="btn btn-raised btn-primary waves-effect waves-light" id="join">JOIN</button>
-                <button class="btn btn-raised btn-primary waves-effect waves-light" id="leave">LEAVE</button>
-                <button class="btn btn-raised btn-primary waves-effect waves-light" id="publish">PUBLISH</button>
-                <button class="btn btn-raised btn-primary waves-effect waves-light" id="unpublish">UNPUBLISH</button>
+                  <button class="" id="leave">Leave</button>
+                  <button class="" id="join">Join</button>
+                  <button class="" id="publish">Publish</button>
+                  <button class="" id="unpublish">Unpublish</button>
                 </div>
+                <div class="col s10">
+                    <button class="" id="checkSystem" style="margin-top: 10px">System</button>
+                    <button class="" id="checkNetwork" style="margin-top: 10px">Network</button>
+                    <button class="" id="checkSession" style="margin-top: 10px">Session</button>
+                    <button class="" id="checkAudioStream" style="margin-top: 10px">Audio Stream</button>
+                    <button class="" id="checkNetworkQuality" style="margin-top: 10px">Network</button>
+
+                    </div>
               </div>
               <div class="row col" style="margin: 0">
                 <div class="switch">
-                  <h6 style="color: rgba(223, 16, 27, 0 .205);">Show Profile</h6>
+                  <h6 style="color: rgba(0,0,0,.26);">Show Profile</h6>
                   <label>
                     <input id="show_profile" type="checkbox">
                     <span class="lever"></span>
@@ -55,14 +62,14 @@
         <ul class="collapsible card agora-secondary-border" style="margin-top: .4rem; border: 1px ">
           <li>
             <div class="collapsible-header agora-secondary-bg">
-              <h8 class="center-align">ADVANCED SETTINGS</h8>
+              <h8 class="center-align">ADVANACED SETTINGS</h8>
             </div>
             <div class="collapsible-body card-content">
               <div class="row">
                 <div class="col s12">
                   <div class="input-field">
                     <label for="UID" class="active">UID</label>
-                    <input type="number" placeholder="UID" name="uid">
+                    <input type="text" placeholder="UID" name="uid">
                   </div>
                   <div class="input-field">
                     <label for="cameraId" class="active">CAMERA</label>
@@ -112,6 +119,37 @@
               </div>
           </li>
         </ul>
+        <!-- Call Statistics -->
+        <div class="card" style="margin-top: 0px; margin-bottom: 0px;" id="statistics">
+          <div class="row card-content" style="margin-bottom: 0px;">
+              <ul>
+                <h6>System</h6>
+                <li id="statBattery"></li>
+                <h6>Network</h6>
+                <li id="statRTT"></li>
+                <li id="statNetworkType"></li>
+                <li id="statBandwidth"></li>
+                <h6>Session</h6>
+                <li id="statDuration"></li>
+                <li id="statUserCount"> </li>
+                <li id="statSendBytes"></li>
+                <li id="statRecvBytes"></li>
+                <li id="statSendBitrate"></li>
+                <li id="statRecvBtrate"></li>
+                <h6>Local Stream - Audio</h6>
+                <li id="codecType"></li>
+                <li id="MuteState"></li>
+                <li id="RecordingLevel"></li>
+                <li id="SamplingRate"></li>
+                <li id="SendBitrate"></li>
+                <li id="SendLevel"></li>
+                <h6>Network Quality</h6>
+                <li id="statUpNetwork"></li>
+                <li id="statDownNetwork"></li>
+              </ul>
+          </div>
+        </div>
+        <!-- Call Statistics End -->
       </div>
       <div class="col s7">
         <div class="video-grid" id="video">
@@ -124,5 +162,5 @@
       </div>
     </div>
   </form>
-</body>
+
 </html>
